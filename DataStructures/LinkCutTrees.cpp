@@ -23,11 +23,6 @@ private:
 			son[0]=son[1]=fa=null;
 		}
 
-		void *operator new(size_t flag) {
-			static Node *pool=(Node*)malloc(SIZE*sizeof(Node)),*mem;
-			return flag?mem++:mem=pool;
-		}
-
 		int Type() {
 			return fa->son[1]==this;
 		}

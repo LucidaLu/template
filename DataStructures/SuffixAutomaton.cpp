@@ -5,10 +5,6 @@ struct SuffixAutomata {
 		Node *par;
 		int maxRight;
 		Node(int maxRight=0):par(0),maxRight(maxRight) {}
-		void *operator new(size_t flag) {
-			static *pool=(*)malloc(*sizeof()),*mem;
-			return flag?mem++:mem=pool;
-		}
 	}*root,*last;
 	
 	long long cnt;

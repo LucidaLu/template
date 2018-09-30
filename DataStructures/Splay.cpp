@@ -21,13 +21,6 @@ struct Splay {
 			return fa->son[1]==this;
 		}
 
-		void *operator new(size_t) {
-			return *bin?*bin--:mem++;
-		}
-
-		void operator delete(void *p) {
-			*++bin=(Node*)p;
-		}
 
 		void Up() {
 			size=son[0]->size+1+son[1]->size;
@@ -38,7 +31,7 @@ struct Splay {
 		}
 	}*root,*nil[2];
 
-	static Node *mem,**bin,*null;
+	static Node *null;
 
 	Splay(int *a,int n) {
 		root=nil[0]=new Node(0);
@@ -124,4 +117,4 @@ struct Splay {
 		return pr->son[0];
 	}
 };
-Splay::Node *Splay::mem=(Splay::Node*)malloc(XN*sizeof(Splay::Node)),**Splay::bin=(Splay::Node**)malloc(XN*sizeof(Splay::Node*)),*Splay::null=new Splay::Node((void*)0);
+Splay::Node *Splay::null=new Splay::Node((void*)0);

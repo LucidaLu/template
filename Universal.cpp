@@ -1,7 +1,6 @@
 #include <bits/stdc++.h>
 
 struct Istream {
-
 	Istream() {
 #ifndef ONLINE_JUDGE
 #ifdef DEBUG
@@ -52,21 +51,28 @@ struct Istream {
 	}
 }fin;
 
+const int OUT=1e5;
+
 struct Ostream {
 #ifdef OO
-	char out[(int)1e5],*op;
+	char out[OUT+1],*op;
 	
-	Ostream():op(out) {}
+	Ostream():op(out) {
+		out[OUT]=EOF;
+	}
+
 	~Ostream() {
 		flush();
 	}
 	
 	void flush() {
 		fwrite(out,1,op-out,stdout);
+		op=out;
 	}
 
 	void putchar(char const &x) {
-		*op==EOF && (flush(),op=out,*op++);
+		if(*op==EOF)
+			flush();
 		*op++=x;
 	}
 #else
@@ -103,4 +109,3 @@ template <class T> bool Enlarge(T &a,T const &b) {
 template <class T> bool Reduce(T &a,T const &b) {
 	return a>b?a=b,1:0;
 }
-

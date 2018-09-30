@@ -3,7 +3,7 @@ struct Point {
 };
 
 long long Dist(Point const &a,Point const &b) {
-	~;
+	
 }
 
 struct KDTree {
@@ -15,13 +15,8 @@ struct KDTree {
 			son[0]=son[1]=null;
 		}
 
-		Node(void*):min(~),max(~) {
+		Node(void*):min(),max() {
 			son[0]=son[1]=0;
-		}
-
-		void *operator new(size_t flag) {
-			static Node *pool=(Node*)malloc(XN*sizeof(Node)),*mem=pool++;
-			return flag?mem++:mem=pool;
 		}
 
 		void Up() {
@@ -32,7 +27,7 @@ struct KDTree {
 		}
 
 		long long Dist(Point const &q) {
-			~;
+			
 		}
 	}*root;
 
@@ -62,13 +57,13 @@ struct KDTree {
 		}
 	}
 
-	~ Query(Point p) {
-		~ res;
+	long long Query(Point p) {
+		long long res;
 		Query(root,p,res);
 		return res;
 	}
 
-	void Query(Node *pos,Point p,~ &res) {
+	void Query(Node *pos,Point p,long long &res) {
 		if(pos==null)
 			return;
 		else {

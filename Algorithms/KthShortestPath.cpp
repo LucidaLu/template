@@ -53,4 +53,3 @@ int main(){
 	for(int i=1;i<=m;i++)add(xx[i],yy[i],zz[i]);
 	printf("%d\n",A_star());
 }
-

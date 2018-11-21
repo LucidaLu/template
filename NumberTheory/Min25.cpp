@@ -62,7 +62,7 @@ namespace Min25 {
 			fps[i]=fps[i-1]+F(prime[i],1);
 		for(int j=1;j<=psz;++j)
 			for(int i=1;i<=kpc && (long long)prime[j]*prime[j]<=kp[i];++i)
-				g[id[kp[i]]]-=g[id[kp[i]/prime[j]]]-fps[j-1];
+				g[id[kp[i]]]-=F(prime[j],1)*(g[id[kp[i]/prime[j]]]-fps[j-1]);
 		return H(n,1);
 	}
 }

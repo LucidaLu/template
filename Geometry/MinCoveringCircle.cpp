@@ -4,12 +4,11 @@ struct Circle {
 	Circle(Point o,double r):o(o),r(r) {}
 };
 
-Line PerpendicularBisector(Point p1,Point p2) {
-	return Line((p1+p2)/2,(p2-p1).Normal());
-}
-
 Point CircleCenter(Point p1,Point p2,Point p3) {
-	return Cross(PerpendicularBisector(p1,p2),PerpendicularBisector(p2,p3));	
+	long double a1=p2.x-p1.x,b1=p2.y-p1.y,c1=(a1*a1+b1*b1)/2;
+	long double a2=p3.x-p1.x,b2=p3.y-p1.y,c2=(a2*a2+b2*b2)/2;
+	long double d=a1*b2-a2*b1;
+	return {p1.x+(c1*b2-c2*b1)/d,p1.y+(a1*c2-a2*c1)/d};
 }
 
 Circle MinCoveringCircle(Point p[],int n) {

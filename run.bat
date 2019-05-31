@@ -6,3 +6,4 @@ cd ..
 copy .\gen\template.pdf template.pdf
 cd gen
 del template.pdf content.tex *.log *.toc *.aux *.pyg
+cd ..

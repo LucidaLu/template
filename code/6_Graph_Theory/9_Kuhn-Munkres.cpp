@@ -4,11 +4,11 @@ namespace KM {
 	const int oo=2e9+10;
 	int n,boy[N],girl[N],slack[N],pre[N],q[N],lx[N],ly[N],w[N][N];
 	bool visx[N],visy[N];
-	void aug(int y){//·­×ªÆ¥Åä±ßºÍ·ÇÆ¥Åä±ß£¬Ê¹Æ¥Åäµã¶Ô+1
+	void aug(int y){//ç¿»è½¬åŒ¹é…è¾¹å’ŒéåŒ¹é…è¾¹ï¼Œä½¿åŒ¹é…ç‚¹å¯¹+1
 		for(int x,z;y;y=z){
-			x=pre[y],z=girl[x];//preÎªÔö¹ãÂ·¾¶µÄÉÏÒ»¸öµã
+			x=pre[y],z=girl[x];//preä¸ºå¢å¹¿è·¯å¾„çš„ä¸Šä¸€ä¸ªç‚¹
 			girl[x]=y,boy[y]=x;
-		}//girl[x]ÎªÄĞÉúxµÄ°éÂÂ£¬boy[y]ÎªÅ®ÉúyµÄ°éÂÂ
+		}//girl[x]ä¸ºç”·ç”Ÿxçš„ä¼´ä¾£ï¼Œboy[y]ä¸ºå¥³ç”Ÿyçš„ä¼´ä¾£
 	}
 	void bfs(int s){
 		memset(visx,0,sizeof (bool)*(n+1));
@@ -25,14 +25,14 @@ namespace KM {
 							pre[y]=x;
 							if(!boy[y]){
 								aug(y);
-								return;//ÕÒµ½Íê±¸Æ¥Åä
+								return;//æ‰¾åˆ°å®Œå¤‡åŒ¹é…
 							}else{
 								visy[y]=1;
 								q[t++]=boy[y];
 							}
 						}else if(lx[x]+ly[y]-w[x][y]<slack[y]){
 							pre[y]=x;
-							slack[y]=lx[x]+ly[y]-w[x][y];//¸üĞÂslack
+							slack[y]=lx[x]+ly[y]-w[x][y];//æ›´æ–°slack
 						}
 					}
 			}
@@ -41,7 +41,7 @@ namespace KM {
 				if(!visy[y])d=min(d,slack[y]);
 			for(int i=1;i<=n;++i){
 				if(visx[i])lx[i]-=d;
-				if(visy[i])ly[i]+=d;else slack[i]-=d;//ËÉ³Ú²Ù×÷
+				if(visy[i])ly[i]+=d;else slack[i]-=d;//æ¾å¼›æ“ä½œ
 			}
 			for(int y=1;y<=n;++y){
 				if(!visy[y]&&!slack[y]){
@@ -50,17 +50,17 @@ namespace KM {
 						return;
 					}else{
 						visy[y]=1;
-						q[t++]=boy[y];//ËÉ³ÚÖ®ºó¼ÓÈëĞÂµÄµã
+						q[t++]=boy[y];//æ¾å¼›ä¹‹ååŠ å…¥æ–°çš„ç‚¹
 					}
 				}
 			}
 		}
 	}
-	long long run(int nx,int ny){//nxÎªÄĞÉúÊıÁ¿,nyÎªÅ®ÉúÊıÁ¿
-		n=max(nx,ny);//²¹×ãÈËÊı
+	long long run(int nx,int ny){//nxä¸ºç”·ç”Ÿæ•°é‡,nyä¸ºå¥³ç”Ÿæ•°é‡
+		n=max(nx,ny);//è¡¥è¶³äººæ•°
 		for(int i=1;i<=n;++i)
 			for(int j=1;j<=n;++j)
-				lx[i]=max(lx[i],w[i][j]);//lx,lyÎªµã±ê,wÎª±ßÈ¨
+				lx[i]=max(lx[i],w[i][j]);//lx,lyä¸ºç‚¹æ ‡,wä¸ºè¾¹æƒ
 		for(int i=1;i<=n;++i)bfs(i);
 		long long res=0;
 		for(int i=1;i<=n;++i)res+=lx[i]+ly[i];

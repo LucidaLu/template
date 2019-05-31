@@ -1,0 +1,48 @@
+% CheatSheet.sty
+% <title>LaTeX style file for ACM-ICPC Cheat Sheet</title>
+% By Lodour (jjmangogao@gmail.com)
+% Modified by Lucida
+% Version: 2017.11.5
+% LaTeX style file for ACM-ICPC Cheat Sheet.
+% load after article.cls
+
+% 中文显示
+\usepackage{xeCJK}
+\setCJKmainfont[
+    BoldFont=Noto Serif CJK SC Bold,
+    ItalicFont=Noto Serif CJK SC Light
+]{Noto Serif CJK SC}
+%\setCJKsansfont{STHeiti}
+%\setCJKmonofont{STKaiti}
+
+% 数学公式扩展
+\usepackage{amsmath, amsthm}
+
+% 目录等级
+\usepackage{shorttoc}
+\setcounter{tocdepth}{3}
+
+% 代码高亮
+\usepackage[cache=false]{minted}
+\setminted{frame=single,mathescape,breaklines,tabsize=4}
+
+% 页边距
+\usepackage{geometry}
+\geometry{bottom=1.5cm, top=1.5cm}
+\geometry{left=1.5cm, right=1.5cm}
+
+% 插入图片
+\usepackage{graphicx}
+
+% 环境定义
+\newtheorem{theorem}{定理}[section]
+\newtheorem{defination}{定义}[section]
+\newtheorem{corollary}{推论}[section]
+
+% 特殊命令
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+
+% 名词翻译
+\renewcommand{\today}{\number\year 年 \number\month 月 \number\day 日}
+\renewcommand{\contentsname}{目\qquad 录}
+\renewcommand\figurename{图}

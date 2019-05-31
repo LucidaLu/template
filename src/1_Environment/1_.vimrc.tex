@@ -1,0 +1,18 @@
+\begin{minted}{vim}
+set tabstop=4
+set shiftwidth=4
+set autoindent
+set cindent
+set number
+syntax on
+inoremap {<tab> {}<left><return><up><end><return>
+imap ` <c-n>
+inoremap <c-l> <up><end><space>{<down><end><cr>}<up><end>
+inoremap <c-k> <up><end><bs><bs><down><down><esc>ddi<up><end>
+set timeoutlen=150
+set cino=l-s
+set filetype=cpp
+iab ll long long
+iab opn freopen("input","r",stdin)
+autocmd BufNewFile *.cpp 0r ~/template.cpp
+\end{minted}

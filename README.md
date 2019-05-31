@@ -1,3 +1,3 @@
-# This is the templates for competitive programming of Team NaN
+# This is the template for competitive programming of Team Yakimochi
 
-**SiriusRen** X **JinHaonan** X **LucidaLu**
+**9646516** X **JinHaonan** X **LucidaLu**

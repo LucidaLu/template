@@ -1,5 +1,5 @@
-//nxt 表示B[i..m]与B的最长公共前缀
-//extend 表示A[i..n]与B的最长公共前缀长度
+//nxt 琛ㄧずB[i..m]涓嶣鐨勬渶闀垮叕鍏卞墠缂�
+//extend 琛ㄧずA[i..n]涓嶣鐨勬渶闀垮叕鍏卞墠缂�闀垮害
 void exKMP(char *A,char *B,int nxt[],int extend[]) {
 	int n=strlen(A+1),m=strlen(B+1),x=1;
 	nxt[1]=m;

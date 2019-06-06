@@ -49,7 +49,8 @@ namespace StaticEdgeBasedDC {
 		for(Edge *e=G[pos];e;e=e->pre)
 			if(!e->ban && e->to!=fa) {
 				int u=e->to;
-				Reduce(res,std::min(Bridge(u,pos,tol),std::pair<int,Edge*>(std::max(size[u],tol-size[u]),e)));
+				Reduce(res,std::min(Bridge(u,pos,tol),
+							std::pair<int,Edge*>(std::max(size[u],tol-size[u]),e)));
 			}
 		return res;
 	}
@@ -61,7 +62,8 @@ namespace StaticEdgeBasedDC {
 			brg->ban=brg->rev->ban=1;
 			int x=brg->to,y=brg->rev->to;
 			long long res=Calc();
-			Enlarge(res,std::max(DC(Bridge(x,0,GetSize(x,0)).second),DC(Bridge(y,0,GetSize(y,0)).second)));
+			Enlarge(res,std::max(DC(Bridge(x,0,GetSize(x,0)).second),
+						DC(Bridge(y,0,GetSize(y,0)).second)));
 			return res;
 		}
 	}

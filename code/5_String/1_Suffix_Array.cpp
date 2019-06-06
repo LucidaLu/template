@@ -19,7 +19,8 @@ struct SuffixArray {
 			std::swap(x,y);x[sa[1]]=p=1;
 			for(int i=2;i<=n;++i)
 				x[sa[i]]=y[sa[i-1]]==y[sa[i]] 
-					  && (sa[i-1]+len<=n?y[sa[i-1]+len]:0)==(sa[i]+len<=n?y[sa[i]+len]:0)?p:++p;
+					  && (sa[i-1]+len<=n?y[sa[i-1]+len]:0)==
+					  (sa[i]+len<=n?y[sa[i]+len]:0)?p:++p;
 			if((m=p)==n) break;
 		}
 		for(int i=1;i<=n;++i) rank[sa[i]]=i;

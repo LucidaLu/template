@@ -112,7 +112,7 @@ struct Splay {
 		return 0;   
 	}
 
-	Node *Split(int l,int r) {//返回对应子树的根节点
+	Node *Split(int l,int r) {//杩斿洖瀵瑰簲瀛愭爲鐨勬牴鑺傜偣
 		Node *pl=Kth(l-1),*pr=Kth(r+1);
 		SplayTo(pl,null);SplayTo(pr,pl);
 		return pr->son[0];

@@ -1,5 +1,5 @@
 double MaxDist(Point p[],int n) {
-	//ÊäÈë±ØĞëÓĞĞò
+	//è¾“å…¥å¿…é¡»æœ‰åº
 	if(n==2) {
 		return Dist(p[1],p[2]);
 	} else {

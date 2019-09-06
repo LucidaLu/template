@@ -13,7 +13,7 @@ void exKMP(char *A,char *B,int nxt[],int extend[]) {
 			if(j<1)j=1;
 			for(;j+i-1<=m&&B[j]==B[j+i-1];++j);
 			nxt[i]=j-1;
-			if(nxt[x]<=nxt[i])x=i;
+			x=i;
 		}
 	
 	x=1;

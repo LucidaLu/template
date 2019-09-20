@@ -2,7 +2,7 @@ typedef long long LL;
 
 const int XN = (1 << 18) + 31, P = 1000000007;
 const double PI2 = 2 * 3.141592653589793238462643383279;
-int N = 1 << 19, L = 15, K = (1 << L) - 1;
+int N = 1 << 18, L = 15, K = (1 << L) - 1;
 
 struct X {
     double x, y;

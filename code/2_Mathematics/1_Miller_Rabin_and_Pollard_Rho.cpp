@@ -6,18 +6,20 @@ namespace MillerRabin {
 
 	long long Pow(long long a,long long b,long long mo){
 		long long res=1;
-		for(;b;b>>=1,a=Mul(a,a,mo))if(b&1)res=Mul(res,a,mo);
+		for(;b;b>>=1,a=Mul(a,a,mo))
+			if(b&1)
+				res=Mul(res,a,mo);
 		return res;
 	}
 
 	bool IsPrime(long long n){
 		if(n==2)return 1;
 		if(n<2||!(n&1))return 0;
-		static const int P=9,num[P]={2,3,5,7,11,13,17,19,23};
+		static const auto tester={2,3,5,7,11,13,17,19,23};
 		long long x=n-1;int t=0;
 		for(;!(x&1);x>>=1)++t;
-		for(int i=1;i<P;++i){
-			long long a=num[i]%(n-1)+1,res=Pow(a%n,x,n),last=res;
+		for(int p : tester) {
+			long long a=p%(n-1)+1,res=Pow(a%n,x,n),last=res;
 			for(int j=1;j<=t;++j){
 				res=Mul(res,res,n);
 				if(res==1&&last!=1&&last!=n-1)return 0;
